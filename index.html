@@ -230,11 +230,8 @@
                     <li>Privacy-first (all analysis happens locally)</li>
                 </ul>
                 
-                <div class="install-code">
-                    # Quick Install<br>
-                    git clone https://github.com/smilinTux/sksecurity.io<br>
-                    cd sksecurity.io/skills/email-prescreening<br>
-                    ./install.sh
+                <div class="install-code" onclick="copyToClipboard(this)" title="Click to copy!" style="cursor: pointer;">
+                    pip install sksecurity
                 </div>
             </div>
             
@@ -369,5 +366,21 @@
             © 2026 smilinTux — The Penguin Kingdom • Protecting Pengu Sovereignty ✨
         </p>
     </footer>
+    <script>
+        function copyToClipboard(el) {
+            const text = el.textContent.trim();
+            navigator.clipboard.writeText(text).then(() => {
+                const orig = el.innerHTML;
+                el.style.backgroundColor = 'rgba(0, 255, 0, 0.3)';
+                el.style.borderColor = '#00ff00';
+                el.textContent = '✅ Copied!';
+                setTimeout(() => {
+                    el.style.backgroundColor = '';
+                    el.style.borderColor = '';
+                    el.innerHTML = orig;
+                }, 1500);
+            }).catch(() => {});
+        }
+    </script>
 </body>
 </html>
