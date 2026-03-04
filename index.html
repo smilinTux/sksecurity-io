@@ -3,401 +3,428 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SKSecurity - Pengu Army Defense Fortress</title>
-    <meta name="description" content="AI-native security tools protecting creators and agents. Zero maintenance, maximum protection, enterprise results without enterprise headaches.">
-    <!-- Open Graph -->
-    <meta property="og:title" content="SKSecurity - Pengu Army Defense Fortress">
-    <meta property="og:description" content="AI-native security tools protecting creators and agents. Zero maintenance, maximum protection, enterprise results without enterprise headaches.">
+    <title>SKSecurity -- AI-Native Security. Zero Maintenance.</title>
+    <meta name="description" content="Email prescreening, vulnerability scanning, AI-powered threat detection. Protecting the sovereign stack.">
+    <link rel="canonical" href="https://sksecurity.io">
+    <meta property="og:title" content="SKSecurity -- AI-Native Security. Zero Maintenance.">
+    <meta property="og:description" content="Email prescreening, vulnerability scanning, AI-powered threat detection. Protecting the sovereign stack.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sksecurity.io">
     <meta property="og:site_name" content="SKWorld">
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SKSecurity - Pengu Army Defense Fortress">
-    <meta name="twitter:description" content="AI-native security tools protecting creators and agents. Zero maintenance, maximum protection, enterprise results without enterprise headaches.">
-    <!-- Favicon & Canonical -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
-    <link rel="canonical" href="https://sksecurity.io">
+    <meta name="twitter:title" content="SKSecurity -- AI-Native Security. Zero Maintenance.">
+    <meta name="twitter:description" content="Email prescreening, vulnerability scanning, AI-powered threat detection. Protecting the sovereign stack.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%9B%A1</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+      *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+      body {
+        font-family: 'Geist', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        background: #09090b;
+        color: #fafafa;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* ── Nav ─────────────────────────────────── */
+      .nav {
+        border-bottom: 1px solid #27272a;
+        background: #09090b;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+      .nav-inner {
+        max-width: 72rem;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 4rem;
+        padding: 0 1rem;
+      }
+      .nav-logo {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #fafafa;
+        text-decoration: none;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      .nav-link {
+        font-size: 0.875rem;
+        color: #a1a1aa;
+        text-decoration: none;
+        transition: color 0.15s;
+      }
+      .nav-link:hover {
+        color: #fafafa;
+      }
+
+      /* ── Hero ────────────────────────────────── */
+      .hero {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 5rem 1rem 3rem;
+      }
+      .hero-icon {
+        color: #34d399;
+        margin-bottom: 1.5rem;
+        opacity: 0.9;
+      }
+      .hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        font-weight: 700;
+        letter-spacing: -0.025em;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+      }
+      .hero .tagline {
+        font-size: 1.25rem;
+        color: #a1a1aa;
+        max-width: 40rem;
+        margin-bottom: 2rem;
+      }
+      .hero .cta-row {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      /* ── Buttons ─────────────────────────────── */
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.75rem 1.5rem;
+        background: #059669;
+        color: #fafafa;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        transition: background 0.15s;
+        border: none;
+        cursor: pointer;
+      }
+      .btn-primary:hover {
+        background: #047857;
+      }
+      .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.75rem 1.5rem;
+        background: transparent;
+        color: #fafafa;
+        font-size: 1rem;
+        font-weight: 600;
+        border-radius: 0.5rem;
+        border: 1px solid #3f3f46;
+        text-decoration: none;
+        transition: border-color 0.15s, color 0.15s;
+        cursor: pointer;
+      }
+      .btn-outline:hover {
+        border-color: #a1a1aa;
+      }
+
+      /* ── Description ─────────────────────────── */
+      .desc-section {
+        max-width: 48rem;
+        margin: 0 auto;
+        padding: 2rem 1rem 3rem;
+        text-align: center;
+      }
+      .desc-section p {
+        font-size: 1.125rem;
+        color: #a1a1aa;
+        line-height: 1.7;
+      }
+
+      /* ── Features ────────────────────────────── */
+      .features-section {
+        max-width: 64rem;
+        margin: 0 auto;
+        padding: 2rem 1rem 4rem;
+      }
+      .features-section h2 {
+        text-align: center;
+        font-size: 1.875rem;
+        font-weight: 700;
+        margin-bottom: 2.5rem;
+        color: #fafafa;
+      }
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+      }
+      .feature-card {
+        border: 1px solid #27272a;
+        background: rgba(24,24,27,0.5);
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        transition: border-color 0.2s, transform 0.2s;
+        position: relative;
+      }
+      .feature-card:hover {
+        border-color: #34d399;
+        transform: translateY(-2px);
+      }
+      .feature-dot {
+        width: 8px;
+        height: 8px;
+        background: #34d399;
+        border-radius: 50%;
+        margin-bottom: 0.75rem;
+      }
+      .feature-card h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #34d399;
+      }
+
+      /* ── Install ─────────────────────────────── */
+      .install-section {
+        max-width: 40rem;
+        margin: 0 auto;
+        padding: 2rem 1rem 4rem;
+        text-align: center;
+      }
+      .install-section h2 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: #fafafa;
+      }
+      .code-block {
+        background: #18181b;
+        border: 1px solid #27272a;
+        border-radius: 0.5rem;
+        padding: 1rem 1.25rem;
+        font-family: 'Geist Mono', ui-monospace, 'Cascadia Code', 'Fira Code', monospace;
+        font-size: 0.95rem;
+        color: #34d399;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        position: relative;
+      }
+      .code-prompt {
+        color: #a1a1aa;
+        user-select: none;
+      }
+      .copy-btn {
+        position: absolute;
+        right: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #27272a;
+        border: 1px solid #3f3f46;
+        color: #a1a1aa;
+        padding: 0.25rem 0.75rem;
+        border-radius: 0.375rem;
+        font-size: 0.8rem;
+        cursor: pointer;
+        transition: color 0.15s, border-color 0.15s;
+        font-family: 'Geist', system-ui, sans-serif;
+      }
+      .copy-btn:hover {
+        color: #fafafa;
+        border-color: #a1a1aa;
+      }
+
+      /* ── DID Banner ──────────────────────────── */
+      .did-banner {
+        max-width: 64rem;
+        margin: 0 auto;
+        padding: 0 1rem 3rem;
+      }
+      .did-banner-inner {
+        border: 1px solid rgba(5,150,105,0.3);
+        background: rgba(6,78,59,0.15);
+        border-radius: 0.75rem;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+      .did-banner-inner .did-icon {
+        color: #34d399;
+        flex-shrink: 0;
+      }
+      .did-banner-inner .did-icon svg {
+        width: 32px;
+        height: 32px;
+      }
+      .did-banner-inner h3 {
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #34d399;
+        margin-bottom: 0.25rem;
+      }
+      .did-banner-inner p {
+        font-size: 0.875rem;
+        color: #a1a1aa;
+      }
+      .did-banner-inner .btn-primary {
+        margin-left: auto;
+        white-space: nowrap;
+      }
+
+      /* ── Architect Banner ────────────────────── */
+      .architect-banner {
+        border-top: 1px solid #27272a;
+        text-align: center;
+        padding: 1.5rem 1rem;
+      }
+      .architect-banner p {
+        font-size: 0.95rem;
+        color: #a1a1aa;
+      }
+      .architect-banner a {
+        color: #34d399;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .architect-banner a:hover {
+        text-decoration: underline;
+      }
+
+      /* ── Footer ──────────────────────────────── */
+      .footer {
+        border-top: 1px solid #27272a;
+        background: #09090b;
+        padding: 2rem 1rem;
+        text-align: center;
+      }
+      .footer p {
+        font-size: 0.875rem;
+        color: #71717a;
+      }
+      .footer .motto {
+        margin-top: 0.5rem;
+        color: #52525b;
+      }
+
+      /* ── Mobile ──────────────────────────────── */
+      @media (max-width: 768px) {
+        .features-grid {
+          grid-template-columns: 1fr;
         }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #0F0F23 0%, #1A1A2E 100%);
-            color: white;
-            line-height: 1.6;
+        .nav-links {
+          gap: 1rem;
         }
-        
-        .header {
-            padding: 3rem 2rem;
-            text-align: center;
-            background: rgba(255,0,0,0.1);
-            border-bottom: 2px solid rgba(255,0,0,0.2);
+        .did-banner-inner {
+          flex-direction: column;
+          text-align: center;
         }
-        
-        .logo {
-            font-size: 5rem;
-            margin-bottom: 1rem;
-            animation: pulse 2s ease-in-out infinite;
+        .did-banner-inner .btn-primary {
+          margin-left: 0;
         }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+        .hero .cta-row {
+          flex-direction: column;
+          width: 100%;
+          padding: 0 1rem;
         }
-        
-        .title {
-            font-size: 3.5rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            color: #FF6B6B;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        .hero .cta-row a {
+          width: 100%;
+          justify-content: center;
         }
-        
-        .tagline {
-            font-size: 1.4rem;
-            opacity: 0.9;
-            margin-bottom: 2rem;
-            color: #FFE66D;
+      }
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .features-grid {
+          grid-template-columns: repeat(2, 1fr);
         }
-        
-        .skills-section {
-            padding: 4rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-        
-        .skill-card {
-            background: rgba(255,255,255,0.03);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid rgba(255,107,107,0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(45deg, #FF6B6B, #FFE66D);
-        }
-        
-        .skill-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255,255,255,0.08);
-            box-shadow: 0 10px 30px rgba(255,107,107,0.2);
-        }
-        
-        .skill-status {
-            background: #27AE60;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            float: right;
-            margin-bottom: 1rem;
-        }
-        
-        .skill-card h3 {
-            color: #FF6B6B;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-            clear: both;
-        }
-        
-        .skill-card .description {
-            margin-bottom: 1.5rem;
-            opacity: 0.8;
-        }
-        
-        .skill-features {
-            list-style: none;
-            margin: 1.5rem 0;
-        }
-        
-        .skill-features li {
-            padding: 0.3rem 0;
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-        
-        .skill-features li:before {
-            content: "✓ ";
-            color: #27AE60;
-            font-weight: bold;
-        }
-        
-        .install-code {
-            background: rgba(0,0,0,0.4);
-            padding: 1rem;
-            border-radius: 8px;
-            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-            font-size: 0.9rem;
-            color: #87CEEB;
-            margin: 1rem 0;
-            border-left: 3px solid #FF6B6B;
-        }
-        
-        .security-principles {
-            background: linear-gradient(45deg, rgba(255,107,107,0.1), rgba(255,230,109,0.1));
-            padding: 3rem 2rem;
-            margin: 3rem 0;
-            border-radius: 20px;
-        }
-        
-        .principles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .principle {
-            text-align: center;
-            padding: 1.5rem;
-        }
-        
-        .principle-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        
-        .principle h3 {
-            color: #FFE66D;
-            margin-bottom: 1rem;
-        }
-        
-        .community-section {
-            background: rgba(0,0,0,0.3);
-            padding: 4rem 2rem;
-            text-align: center;
-        }
-        
-        footer {
-            background: rgba(0,0,0,0.5);
-            padding: 2rem;
-            text-align: center;
-        }
-        
-        .footer-links a {
-            color: #87CEEB;
-            text-decoration: none;
-            margin: 0 1rem;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: #FFE66D;
-        }
+      }
     </style>
 </head>
 <body>
-    <div class="breadcrumb" style="background: rgba(0,0,0,0.3); padding: 1rem 2rem; font-size: 0.9rem;">
-        <a href="https://skworld.io">🐧 SKWorld</a> → 
-        <span>🛡️ SKSecurity Defense Fortress</span>
-    </div>
-
-    <header class="header">
-        <div class="logo">🛡️</div>
-        <h1 class="title">SKSecurity</h1>
-        <p class="tagline">Protecting the Pengu Army with AI-Native Defense</p>
-        <p>Zero Maintenance • Maximum Protection • Creator-Friendly</p>
-    </header>
-
-    <section class="skills-section">
-        <h2 style="text-align: center; font-size: 2.5rem; color: #FFE66D; margin-bottom: 3rem;">
-            🔧 Available Security Skills
-        </h2>
-        
-        <div class="skills-grid">
-            <div class="skill-card">
-                <div class="skill-status">✅ PRODUCTION READY</div>
-                <h3>📧 Email Prescreening</h3>
-                <div class="description">
-                    AI-powered email security that detects prompt injection attacks automatically. 
-                    Perfect for public-facing AI agents who process email from unknown senders.
-                </div>
-                
-                <ul class="skill-features">
-                    <li>Zero maintenance (no whitelists to manage)</li>
-                    <li>Local AI analysis using Ollama models</li>
-                    <li>Traffic light system (auto-process/ask/quarantine)</li>
-                    <li>OpenClaw integration for alerts</li>
-                    <li>Privacy-first (all analysis happens locally)</li>
-                </ul>
-                
-                <div class="install-code" onclick="copyToClipboard(this)" title="Click to copy!" style="cursor: pointer;">
-                    pip install sksecurity
-                </div>
-            </div>
-            
-            <div class="skill-card">
-                <div class="skill-status" style="background: #E67E22;">🔮 COMING SOON</div>
-                <h3>🌐 Network Monitoring</h3>
-                <div class="description">
-                    AI-powered network threat detection that learns your infrastructure patterns 
-                    and alerts on anomalies automatically.
-                </div>
-                
-                <ul class="skill-features">
-                    <li>Behavioral analysis of network traffic</li>
-                    <li>Automatic threat pattern learning</li>
-                    <li>Integration with firewall systems</li>
-                    <li>Real-time intrusion detection</li>
-                    <li>Community threat intelligence sharing</li>
-                </ul>
-            </div>
-            
-            <div class="skill-card">
-                <div class="skill-status" style="background: #E67E22;">🔮 COMING SOON</div>
-                <h3>🔐 Access Control</h3>
-                <div class="description">
-                    Smart authentication systems that adapt to user behavior and 
-                    automatically strengthen security based on risk assessment.
-                </div>
-                
-                <ul class="skill-features">
-                    <li>Behavioral authentication patterns</li>
-                    <li>Risk-based access controls</li>
-                    <li>Multi-factor automation</li>
-                    <li>Session management optimization</li>
-                    <li>Zero-trust implementation</li>
-                </ul>
-            </div>
-            
-            <div class="skill-card">
-                <div class="skill-status" style="background: #E67E22;">🔮 COMING SOON</div>
-                <h3>📋 Audit Tools</h3>
-                <div class="description">
-                    Compliance automation that makes regulatory requirements 
-                    disappear into the background while keeping you protected.
-                </div>
-                
-                <ul class="skill-features">
-                    <li>GDPR compliance automation</li>
-                    <li>HIPAA audit trail generation</li>
-                    <li>SOC 2 report automation</li>
-                    <li>Custom compliance frameworks</li>
-                    <li>Regulatory change monitoring</li>
-                </ul>
-            </div>
+    <!-- Nav -->
+    <nav class="nav">
+      <div class="nav-inner">
+        <a href="https://sksecurity.io" class="nav-logo">SK<span style="color:#34d399">Security</span></a>
+        <div class="nav-links">
+            <a href="https://skworld.io" class="nav-link">SKWorld</a>
+            <a href="https://skarchitect.io" class="nav-link">SKArchitect</a>
+            <a href="https://github.com/smilinTux/sksecurity" class="nav-link" target="_blank" rel="noopener">GitHub</a>
         </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></div>
+      <h1>SK<span style="color:#34d399">Security</span></h1>
+      <p class="tagline">AI-Native Security. Zero Maintenance.</p>
+      <div class="cta-row">
+          <a href="#install" class="btn-primary">Get Started</a>
+          <a href="https://github.com/smilinTux/sksecurity" class="btn-outline" target="_blank" rel="noopener">View on GitHub</a>
+      </div>
     </section>
 
-    <section class="security-principles">
-        <h2 style="text-align: center; font-size: 2.5rem; color: #FFE66D; margin-bottom: 2rem;">
-            🐧 The Pengu Security Philosophy
-        </h2>
-        
-        <div class="principles-grid">
-            <div class="principle">
-                <div class="principle-icon">🎯</div>
-                <h3>Creator-First</h3>
-                <p>Security that enables creativity, doesn't block it. We protect what matters to creators.</p>
-            </div>
-            
-            <div class="principle">
-                <div class="principle-icon">🧠</div>
-                <h3>AI-Native</h3>
-                <p>Intelligent security that learns and adapts. Your defense gets smarter over time.</p>
-            </div>
-            
-            <div class="principle">
-                <div class="principle-icon">🔄</div>
-                <h3>Zero Maintenance</h3>
-                <p>Set it once, runs forever. No constant configuration, no manual updates.</p>
-            </div>
-            
-            <div class="principle">
-                <div class="principle-icon">🌍</div>
-                <h3>Community-Powered</h3>
-                <p>Shared threat intelligence. When one pengu learns, all pengus benefit.</p>
-            </div>
-        </div>
+    <!-- Description -->
+    <section class="desc-section">
+      <p>Email prescreening, vulnerability scanning, AI-powered threat detection. Protecting the sovereign stack.</p>
     </section>
 
-    <section class="community-section">
-        <h2 style="font-size: 2.5rem; color: #FFE66D; margin-bottom: 2rem;">
-            🤝 Join the Security Pengu Coalition
-        </h2>
-        
-        <p style="font-size: 1.3rem; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-            Security is stronger when we work together. Share threats, improve defenses, 
-            and keep the entire pengu family safe from digital predators.
-        </p>
-        
-        <div style="margin: 3rem 0;">
-            <a href="https://github.com/smilinTux/sksecurity.io" class="cta-button" style="background: linear-gradient(45deg, #FF6B6B, #E74C3C); color: white;">
-                📦 Get the Skills
-            </a>
-            
-            <a href="mailto:luminaSK@smilintux.org?subject=Security%20Help%20Needed!" class="cta-button" style="background: linear-gradient(45deg, #FFE66D, #F39C12); color: #2C3E50;">
-                🛡️ Get Protection
-            </a>
-        </div>
-        
-        <div style="margin: 3rem 0; background: rgba(255,255,255,0.05); padding: 2rem; border-radius: 15px; max-width: 600px; margin-left: auto; margin-right: auto;">
-            <h3 style="color: #FFE66D; margin-bottom: 1rem;">🐧 Security Pengu Motto</h3>
-            <p style="font-style: italic; font-size: 1.2rem;">
-                "Stay secure AND keep smilin' - because penguins protecting penguins is the most adorable revolution ever!"
-            </p>
-        </div>
+    <!-- Features -->
+    <section class="features-section" id="features">
+      <h2>Features</h2>
+      <div class="features-grid">
+            <div class="feature-card">
+              <div class="feature-dot"></div>
+              <h3>Email Prescreening</h3>
+            </div>
+            <div class="feature-card">
+              <div class="feature-dot"></div>
+              <h3>Prompt Injection Detection</h3>
+            </div>
+            <div class="feature-card">
+              <div class="feature-dot"></div>
+              <h3>Vulnerability Scanning</h3>
+            </div>
+            <div class="feature-card">
+              <div class="feature-dot"></div>
+              <h3>Audit Logging</h3>
+            </div>
+            <div class="feature-card">
+              <div class="feature-dot"></div>
+              <h3>AI-Native Defense</h3>
+            </div>
+            <div class="feature-card">
+              <div class="feature-dot"></div>
+              <h3>Zero Maintenance</h3>
+            </div>
+      </div>
     </section>
 
-    <footer>
-        <div style="margin-bottom: 2rem;">
-            <h3 style="color: #FFE66D; margin-bottom: 1rem;">🛡️ Part of King Divad's Defense Strategy</h3>
-            <p>Built by security penguins, for creative penguins, with military-grade waddle protection.</p>
+      <section class="install-section">
+        <h2>Get Started</h2>
+        <div class="code-block">
+          <span class="code-prompt">$</span> pip install sksecurity
+          <button class="copy-btn" onclick="navigator.clipboard.writeText('pip install sksecurity');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
         </div>
-        
-        <div class="footer-links">
-            <a href="https://skcapstone.io">🏛️ SKCapstone</a>
-            <a href="https://capauth.io">🔐 CapAuth</a>
-            <a href="https://skmemory.io">🧠 SKMemory</a>
-            <a href="https://skforge.io">🔨 SKForge</a>
-            <a href="https://skstacks.io">📦 SKStacks</a>
-            <a href="https://skhelp.io">🤖 SKHelp</a>
-            <a href="https://skworld.io">🌍 SKWorld</a>
-            <a href="https://github.com/smilinTux/sksecurity">📦 GitHub</a>
-            <a href="https://smilintux.org">🐧 smilinTux</a>
-        </div>
-        
-        <p style="margin-top: 2rem; opacity: 0.7;">
-            © 2026 smilinTux — The Penguin Kingdom • Protecting Pengu Sovereignty ✨
-        </p>
+      </section>
+
+      <section class="architect-banner">
+        <p>Shape the future &rarr; <a href="https://skarchitect.io">Submit proposals and vote at skarchitect.io</a></p>
+      </section>
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Part of the <a href="https://skworld.io" style="color:#34d399;text-decoration:none">SKWorld</a> sovereign ecosystem</p>
+      <p class="motto">staycuriousANDkeepsmilin</p>
     </footer>
-    <script>
-        function copyToClipboard(el) {
-            const text = el.textContent.trim();
-            navigator.clipboard.writeText(text).then(() => {
-                const orig = el.innerHTML;
-                el.style.backgroundColor = 'rgba(0, 255, 0, 0.3)';
-                el.style.borderColor = '#00ff00';
-                el.textContent = '✅ Copied!';
-                setTimeout(() => {
-                    el.style.backgroundColor = '';
-                    el.style.borderColor = '';
-                    el.innerHTML = orig;
-                }, 1500);
-            }).catch(() => {});
-        }
-    </script>
 </body>
 </html>
