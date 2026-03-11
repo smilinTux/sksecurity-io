@@ -3,428 +3,606 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SKSecurity -- AI-Native Security. Zero Maintenance.</title>
-    <meta name="description" content="Email prescreening, vulnerability scanning, AI-powered threat detection. Protecting the sovereign stack.">
-    <link rel="canonical" href="https://sksecurity.io">
-    <meta property="og:title" content="SKSecurity -- AI-Native Security. Zero Maintenance.">
-    <meta property="og:description" content="Email prescreening, vulnerability scanning, AI-powered threat detection. Protecting the sovereign stack.">
+    <title>SKSecurity — The Security Scanner That Sees AI Threats</title>
+    <meta name="description" content="Open-source security for the AI agent era. Detects jailbreak toolkits, model abliteration, prompt injection, and NSFW pipelines that traditional scanners miss. Free forever under GPL-3.0.">
+    <meta property="og:title" content="SKSecurity — Your SIEM Can't See AI Threats. We Can.">
+    <meta property="og:description" content="The first open-source security scanner with AI safety content detection. Crowdsourced threat intelligence via SKSentry. Enterprise reporting with SIEM integration.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sksecurity.io">
-    <meta property="og:site_name" content="SKWorld">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="SKSecurity -- AI-Native Security. Zero Maintenance.">
-    <meta name="twitter:description" content="Email prescreening, vulnerability scanning, AI-powered threat detection. Protecting the sovereign stack.">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%9B%A1</text></svg>">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛡️</text></svg>">
     <style>
-      *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-      body {
-        font-family: 'Geist', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-        background: #09090b;
-        color: #fafafa;
-        line-height: 1.6;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-
-      /* ── Nav ─────────────────────────────────── */
-      .nav {
-        border-bottom: 1px solid #27272a;
-        background: #09090b;
-        position: sticky;
-        top: 0;
-        z-index: 50;
-      }
-      .nav-inner {
-        max-width: 72rem;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 4rem;
-        padding: 0 1rem;
-      }
-      .nav-logo {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: #fafafa;
-        text-decoration: none;
-      }
-      .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-      }
-      .nav-link {
-        font-size: 0.875rem;
-        color: #a1a1aa;
-        text-decoration: none;
-        transition: color 0.15s;
-      }
-      .nav-link:hover {
-        color: #fafafa;
-      }
-
-      /* ── Hero ────────────────────────────────── */
-      .hero {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 5rem 1rem 3rem;
-      }
-      .hero-icon {
-        color: #34d399;
-        margin-bottom: 1.5rem;
-        opacity: 0.9;
-      }
-      .hero h1 {
-        font-size: clamp(2.5rem, 6vw, 4.5rem);
-        font-weight: 700;
-        letter-spacing: -0.025em;
-        line-height: 1.1;
-        margin-bottom: 1.5rem;
-      }
-      .hero .tagline {
-        font-size: 1.25rem;
-        color: #a1a1aa;
-        max-width: 40rem;
-        margin-bottom: 2rem;
-      }
-      .hero .cta-row {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      /* ── Buttons ─────────────────────────────── */
-      .btn-primary {
-        display: inline-flex;
-        align-items: center;
-        padding: 0.75rem 1.5rem;
-        background: #059669;
-        color: #fafafa;
-        font-size: 1rem;
-        font-weight: 600;
-        border-radius: 0.5rem;
-        text-decoration: none;
-        transition: background 0.15s;
-        border: none;
-        cursor: pointer;
-      }
-      .btn-primary:hover {
-        background: #047857;
-      }
-      .btn-outline {
-        display: inline-flex;
-        align-items: center;
-        padding: 0.75rem 1.5rem;
-        background: transparent;
-        color: #fafafa;
-        font-size: 1rem;
-        font-weight: 600;
-        border-radius: 0.5rem;
-        border: 1px solid #3f3f46;
-        text-decoration: none;
-        transition: border-color 0.15s, color 0.15s;
-        cursor: pointer;
-      }
-      .btn-outline:hover {
-        border-color: #a1a1aa;
-      }
-
-      /* ── Description ─────────────────────────── */
-      .desc-section {
-        max-width: 48rem;
-        margin: 0 auto;
-        padding: 2rem 1rem 3rem;
-        text-align: center;
-      }
-      .desc-section p {
-        font-size: 1.125rem;
-        color: #a1a1aa;
-        line-height: 1.7;
-      }
-
-      /* ── Features ────────────────────────────── */
-      .features-section {
-        max-width: 64rem;
-        margin: 0 auto;
-        padding: 2rem 1rem 4rem;
-      }
-      .features-section h2 {
-        text-align: center;
-        font-size: 1.875rem;
-        font-weight: 700;
-        margin-bottom: 2.5rem;
-        color: #fafafa;
-      }
-      .features-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.25rem;
-      }
-      .feature-card {
-        border: 1px solid #27272a;
-        background: rgba(24,24,27,0.5);
-        border-radius: 0.5rem;
-        padding: 1.5rem;
-        transition: border-color 0.2s, transform 0.2s;
-        position: relative;
-      }
-      .feature-card:hover {
-        border-color: #34d399;
-        transform: translateY(-2px);
-      }
-      .feature-dot {
-        width: 8px;
-        height: 8px;
-        background: #34d399;
-        border-radius: 50%;
-        margin-bottom: 0.75rem;
-      }
-      .feature-card h3 {
-        font-size: 1rem;
-        font-weight: 600;
-        color: #34d399;
-      }
-
-      /* ── Install ─────────────────────────────── */
-      .install-section {
-        max-width: 40rem;
-        margin: 0 auto;
-        padding: 2rem 1rem 4rem;
-        text-align: center;
-      }
-      .install-section h2 {
-        font-size: 1.5rem;
-        font-weight: 700;
-        margin-bottom: 1.5rem;
-        color: #fafafa;
-      }
-      .code-block {
-        background: #18181b;
-        border: 1px solid #27272a;
-        border-radius: 0.5rem;
-        padding: 1rem 1.25rem;
-        font-family: 'Geist Mono', ui-monospace, 'Cascadia Code', 'Fira Code', monospace;
-        font-size: 0.95rem;
-        color: #34d399;
-        text-align: left;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        position: relative;
-      }
-      .code-prompt {
-        color: #a1a1aa;
-        user-select: none;
-      }
-      .copy-btn {
-        position: absolute;
-        right: 0.75rem;
-        top: 50%;
-        transform: translateY(-50%);
-        background: #27272a;
-        border: 1px solid #3f3f46;
-        color: #a1a1aa;
-        padding: 0.25rem 0.75rem;
-        border-radius: 0.375rem;
-        font-size: 0.8rem;
-        cursor: pointer;
-        transition: color 0.15s, border-color 0.15s;
-        font-family: 'Geist', system-ui, sans-serif;
-      }
-      .copy-btn:hover {
-        color: #fafafa;
-        border-color: #a1a1aa;
-      }
-
-      /* ── DID Banner ──────────────────────────── */
-      .did-banner {
-        max-width: 64rem;
-        margin: 0 auto;
-        padding: 0 1rem 3rem;
-      }
-      .did-banner-inner {
-        border: 1px solid rgba(5,150,105,0.3);
-        background: rgba(6,78,59,0.15);
-        border-radius: 0.75rem;
-        padding: 2rem;
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-        flex-wrap: wrap;
-      }
-      .did-banner-inner .did-icon {
-        color: #34d399;
-        flex-shrink: 0;
-      }
-      .did-banner-inner .did-icon svg {
-        width: 32px;
-        height: 32px;
-      }
-      .did-banner-inner h3 {
-        font-size: 1.125rem;
-        font-weight: 600;
-        color: #34d399;
-        margin-bottom: 0.25rem;
-      }
-      .did-banner-inner p {
-        font-size: 0.875rem;
-        color: #a1a1aa;
-      }
-      .did-banner-inner .btn-primary {
-        margin-left: auto;
-        white-space: nowrap;
-      }
-
-      /* ── Architect Banner ────────────────────── */
-      .architect-banner {
-        border-top: 1px solid #27272a;
-        text-align: center;
-        padding: 1.5rem 1rem;
-      }
-      .architect-banner p {
-        font-size: 0.95rem;
-        color: #a1a1aa;
-      }
-      .architect-banner a {
-        color: #34d399;
-        text-decoration: none;
-        font-weight: 600;
-      }
-      .architect-banner a:hover {
-        text-decoration: underline;
-      }
-
-      /* ── Footer ──────────────────────────────── */
-      .footer {
-        border-top: 1px solid #27272a;
-        background: #09090b;
-        padding: 2rem 1rem;
-        text-align: center;
-      }
-      .footer p {
-        font-size: 0.875rem;
-        color: #71717a;
-      }
-      .footer .motto {
-        margin-top: 0.5rem;
-        color: #52525b;
-      }
-
-      /* ── Mobile ──────────────────────────────── */
-      @media (max-width: 768px) {
-        .features-grid {
-          grid-template-columns: 1fr;
+        :root {
+            --bg-dark: #0a0e1a;
+            --bg-card: #111827;
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.15);
+            --red: #ef4444;
+            --red-glow: rgba(239, 68, 68, 0.15);
+            --green: #22c55e;
+            --green-glow: rgba(34, 197, 94, 0.1);
+            --gold: #f59e0b;
+            --purple: #a855f7;
+            --text: #e2e8f0;
+            --text-dim: #94a3b8;
+            --border: rgba(255,255,255,0.06);
         }
-        .nav-links {
-          gap: 1rem;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Roboto, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.7;
         }
-        .did-banner-inner {
-          flex-direction: column;
-          text-align: center;
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        code { background: rgba(255,255,255,0.06); padding: 0.15em 0.4em; border-radius: 4px; font-size: 0.9em; font-family: 'SF Mono', 'Fira Code', monospace; }
+
+        /* ── Nav ─────────────────────── */
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(10, 14, 26, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0.8rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
         }
-        .did-banner-inner .btn-primary {
-          margin-left: 0;
+        nav .brand { font-weight: 700; font-size: 1.1rem; }
+        nav .links a { margin-left: 1.5rem; color: var(--text-dim); font-size: 0.9rem; }
+        nav .links a:hover { color: white; text-decoration: none; }
+
+        /* ── Hero ────────────────────── */
+        .hero {
+            padding: 6rem 2rem 4rem;
+            text-align: center;
+            background: radial-gradient(ellipse at 50% 0%, var(--accent-glow) 0%, transparent 60%);
         }
-        .hero .cta-row {
-          flex-direction: column;
-          width: 100%;
-          padding: 0 1rem;
+        .hero h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.15; }
+        .hero h1 .highlight { color: var(--accent); }
+        .hero .subtitle { font-size: 1.25rem; color: var(--text-dim); max-width: 680px; margin: 0 auto 2.5rem; }
+        .hero .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn {
+            display: inline-block; padding: 0.75rem 1.8rem; border-radius: 8px;
+            font-weight: 600; font-size: 0.95rem; transition: all 0.2s;
         }
-        .hero .cta-row a {
-          width: 100%;
-          justify-content: center;
+        .btn-primary { background: var(--accent); color: white; }
+        .btn-primary:hover { background: #2563eb; text-decoration: none; }
+        .btn-outline { border: 1px solid var(--border); color: var(--text); }
+        .btn-outline:hover { background: rgba(255,255,255,0.05); text-decoration: none; }
+        .install-bar {
+            margin: 2.5rem auto 0; max-width: 520px;
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+            padding: 0.8rem 1.2rem; font-family: monospace; font-size: 0.9rem; color: var(--green);
         }
-      }
-      @media (min-width: 769px) and (max-width: 1024px) {
-        .features-grid {
-          grid-template-columns: repeat(2, 1fr);
+
+        /* ── Problem ─────────────────── */
+        .problem { padding: 5rem 2rem; }
+        .problem h2 { text-align: center; font-size: 2rem; margin-bottom: 1rem; }
+        .problem .lead { text-align: center; color: var(--text-dim); max-width: 700px; margin: 0 auto 3rem; font-size: 1.05rem; }
+        .threat-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.2rem;
         }
-      }
+        .threat-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+            padding: 1.5rem; position: relative; overflow: hidden;
+        }
+        .threat-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+        }
+        .threat-card.critical::before { background: var(--red); }
+        .threat-card.high::before { background: var(--gold); }
+        .threat-card .icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+        .threat-card h3 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+        .threat-card p { font-size: 0.9rem; color: var(--text-dim); }
+        .threat-card .badge {
+            display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 0.15rem 0.5rem;
+            border-radius: 4px; margin-bottom: 0.6rem; text-transform: uppercase;
+        }
+        .badge-critical { background: var(--red-glow); color: var(--red); }
+        .badge-high { background: rgba(245, 158, 11, 0.15); color: var(--gold); }
+        .invisible { color: var(--text-dim); font-size: 0.85rem; text-align: center; margin-top: 2rem; }
+
+        /* ── Features ────────────────── */
+        .features { padding: 5rem 2rem; background: rgba(255,255,255,0.01); }
+        .features h2 { text-align: center; font-size: 2rem; margin-bottom: 3rem; }
+        .feature-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .feature {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+            padding: 2rem;
+        }
+        .feature .icon { font-size: 2rem; margin-bottom: 1rem; }
+        .feature h3 { margin-bottom: 0.5rem; }
+        .feature p { color: var(--text-dim); font-size: 0.95rem; }
+        .feature .tag { display: inline-block; background: var(--green-glow); color: var(--green); font-size: 0.75rem; font-weight: 600; padding: 0.15rem 0.5rem; border-radius: 4px; margin-top: 0.8rem; }
+
+        /* ── Docs ───────────────────── */
+        .docs { padding: 5rem 2rem; }
+        .docs h2 { text-align: center; font-size: 2rem; margin-bottom: 0.5rem; }
+        .docs .lead { text-align: center; color: var(--text-dim); margin-bottom: 3rem; }
+        .docs-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem; max-width: 900px; margin: 0 auto;
+        }
+        .docs-col h3 { font-size: 1.15rem; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+        .docs-col h3.dev-heading { color: var(--accent); }
+        .docs-col h3.admin-heading { color: var(--green); }
+        .docs-col ul { list-style: none; }
+        .docs-col li { padding: 0.4rem 0; }
+        .docs-col li a { color: var(--text); font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem; }
+        .docs-col li a:hover { color: var(--accent); }
+        .docs-col li .doc-icon { font-size: 0.85rem; opacity: 0.6; }
+        .docs-col li .doc-desc { display: block; font-size: 0.8rem; color: var(--text-dim); margin-left: 1.35rem; }
+
+        /* ── SKSentry ────────────────── */
+        .sksentry {
+            padding: 5rem 2rem;
+            background: radial-gradient(ellipse at 50% 50%, rgba(168, 85, 247, 0.08) 0%, transparent 60%);
+        }
+        .sksentry h2 { text-align: center; font-size: 2rem; margin-bottom: 0.5rem; }
+        .sksentry .sub { text-align: center; color: var(--purple); font-weight: 600; margin-bottom: 1rem; }
+        .sksentry .desc { text-align: center; color: var(--text-dim); max-width: 650px; margin: 0 auto 2.5rem; }
+        .sentry-flow {
+            display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
+            gap: 0.5rem; margin: 2rem 0; font-size: 0.9rem;
+        }
+        .sentry-step {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+            padding: 0.6rem 1rem; text-align: center;
+        }
+        .sentry-arrow { color: var(--purple); font-weight: bold; }
+
+        /* ── Case Study ──────────────── */
+        .case-study { padding: 5rem 2rem; }
+        .case-study h2 { text-align: center; font-size: 2rem; margin-bottom: 2rem; }
+        .case-box {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+            padding: 2.5rem; max-width: 800px; margin: 0 auto;
+        }
+        .case-box h3 { color: var(--red); margin-bottom: 1rem; }
+        .case-box table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+        .case-box th { text-align: left; color: var(--text-dim); font-size: 0.8rem; text-transform: uppercase; padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+        .case-box td { padding: 0.5rem 0; font-size: 0.9rem; border-bottom: 1px solid var(--border); }
+        .case-box .verdict { margin-top: 1.5rem; padding: 1rem; background: var(--green-glow); border-radius: 8px; border-left: 3px solid var(--green); }
+
+        /* ── Tiers ───────────────────── */
+        .tiers { padding: 5rem 2rem; background: rgba(255,255,255,0.01); }
+        .tiers h2 { text-align: center; font-size: 2rem; margin-bottom: 0.5rem; }
+        .tiers .philosophy { text-align: center; font-style: italic; color: var(--gold); margin-bottom: 3rem; font-size: 1.05rem; }
+        .tier-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem; max-width: 960px; margin: 0 auto;
+        }
+        .tier {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+            padding: 2rem; text-align: center;
+        }
+        .tier.featured { border-color: var(--accent); box-shadow: 0 0 30px var(--accent-glow); }
+        .tier .tier-name { font-size: 0.85rem; text-transform: uppercase; font-weight: 700; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+        .tier .price { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.3rem; }
+        .tier .price-note { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 1.5rem; }
+        .tier ul { list-style: none; text-align: left; margin-bottom: 1.5rem; }
+        .tier li { padding: 0.3rem 0; font-size: 0.9rem; color: var(--text-dim); }
+        .tier li::before { content: "✓ "; color: var(--green); font-weight: bold; }
+        .community-name { color: var(--green); }
+        .pro-name { color: var(--accent); }
+        .enterprise-name { color: var(--gold); }
+
+        /* ── License ─────────────────── */
+        .license {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: radial-gradient(ellipse at 50% 50%, var(--green-glow) 0%, transparent 50%);
+        }
+        .license h2 { font-size: 2rem; margin-bottom: 1rem; }
+        .license .statement { font-size: 1.15rem; max-width: 700px; margin: 0 auto 1.5rem; }
+        .license .gpl { color: var(--green); font-weight: 700; font-size: 1.3rem; }
+        .license .values { font-style: italic; color: var(--gold); font-size: 1.05rem; margin-top: 1.5rem; }
+
+        /* ── Footer ──────────────────── */
+        footer {
+            padding: 3rem 2rem; border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        footer .links a { color: var(--text-dim); margin: 0 1rem; font-size: 0.9rem; }
+        footer .links a:hover { color: white; }
+        footer .copy { margin-top: 1.5rem; color: var(--text-dim); font-size: 0.85rem; }
+
+        @media (max-width: 640px) {
+            .hero h1 { font-size: 2.2rem; }
+            .threat-grid, .feature-grid, .tier-grid { grid-template-columns: 1fr; }
+            nav .links { display: none; }
+        }
     </style>
 </head>
 <body>
-    <!-- Nav -->
-    <nav class="nav">
-      <div class="nav-inner">
-        <a href="https://sksecurity.io" class="nav-logo">SK<span style="color:#34d399">Security</span></a>
-        <div class="nav-links">
-            <a href="https://skworld.io" class="nav-link">SKWorld</a>
-            <a href="https://skarchitect.io" class="nav-link">SKArchitect</a>
-            <a href="https://github.com/smilinTux/sksecurity" class="nav-link" target="_blank" rel="noopener">GitHub</a>
+
+<!-- Nav -->
+<nav>
+    <div class="brand">🛡️ SKSecurity</div>
+    <div class="links">
+        <a href="#threats">Threats</a>
+        <a href="#features">Features</a>
+        <a href="#sksentry">SKSentry</a>
+        <a href="#docs">Docs</a>
+        <a href="#pricing">Pricing</a>
+        <a href="https://github.com/smilinTux/sksecurity-io">GitHub</a>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <h1>Your SIEM can't see <span class="highlight">AI threats</span>.<br>We can.</h1>
+        <p class="subtitle">
+            The first open-source security scanner that detects jailbreak toolkits, model abliteration,
+            prompt injection, and NSFW generation pipelines. The threats traditional scanners are blind to.
+        </p>
+        <div class="cta-row">
+            <a href="https://github.com/smilinTux/sksecurity-io" class="btn btn-primary">Get Started — Free</a>
+            <a href="#features" class="btn btn-outline">See What We Detect</a>
         </div>
-      </div>
-    </nav>
-
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-icon"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></div>
-      <h1>SK<span style="color:#34d399">Security</span></h1>
-      <p class="tagline">AI-Native Security. Zero Maintenance.</p>
-      <div class="cta-row">
-          <a href="#install" class="btn-primary">Get Started</a>
-          <a href="https://github.com/smilinTux/sksecurity" class="btn-outline" target="_blank" rel="noopener">View on GitHub</a>
-      </div>
-    </section>
-
-    <!-- Description -->
-    <section class="desc-section">
-      <p>Email prescreening, vulnerability scanning, AI-powered threat detection. Protecting the sovereign stack.</p>
-    </section>
-
-    <!-- Features -->
-    <section class="features-section" id="features">
-      <h2>Features</h2>
-      <div class="features-grid">
-            <div class="feature-card">
-              <div class="feature-dot"></div>
-              <h3>Email Prescreening</h3>
-            </div>
-            <div class="feature-card">
-              <div class="feature-dot"></div>
-              <h3>Prompt Injection Detection</h3>
-            </div>
-            <div class="feature-card">
-              <div class="feature-dot"></div>
-              <h3>Vulnerability Scanning</h3>
-            </div>
-            <div class="feature-card">
-              <div class="feature-dot"></div>
-              <h3>Audit Logging</h3>
-            </div>
-            <div class="feature-card">
-              <div class="feature-dot"></div>
-              <h3>AI-Native Defense</h3>
-            </div>
-            <div class="feature-card">
-              <div class="feature-dot"></div>
-              <h3>Zero Maintenance</h3>
-            </div>
-      </div>
-    </section>
-
-      <section class="install-section">
-        <h2>Get Started</h2>
-        <div class="code-block">
-          <span class="code-prompt">$</span> pip install sksecurity
-          <button class="copy-btn" onclick="navigator.clipboard.writeText('pip install sksecurity');this.textContent='Copied!';setTimeout(()=>this.textContent='Copy',1500)">Copy</button>
+        <div class="install-bar">
+            <span style="color:var(--text-dim);">$</span> pip install sksecurity <span style="color:var(--text-dim);">&& sksecurity scan .</span>
         </div>
-      </section>
+    </div>
+</section>
 
-      <section class="architect-banner">
-        <p>Shape the future &rarr; <a href="https://skarchitect.io">Submit proposals and vote at skarchitect.io</a></p>
-      </section>
-    <!-- Footer -->
-    <footer class="footer">
-      <p>Part of the <a href="https://skworld.io" style="color:#34d399;text-decoration:none">SKWorld</a> sovereign ecosystem</p>
-      <p class="motto">staycuriousANDkeepsmilin</p>
-    </footer>
+<!-- Problem / Threat Landscape -->
+<section class="problem" id="threats">
+    <div class="container">
+        <h2>AI Agents Are Infrastructure Now.<br>Your Scanner Hasn't Caught Up.</h2>
+        <p class="lead">
+            Traditional scanners check for CVEs and known malware. They'll never flag a Python library that
+            surgically removes your model's ability to say no. SKSecurity scans for <strong>intent patterns</strong>
+            specific to the AI agent ecosystem.
+        </p>
+
+        <div class="threat-grid">
+            <div class="threat-card critical">
+                <div class="icon">🧪</div>
+                <span class="badge badge-critical">Critical</span>
+                <h3>Model Abliteration</h3>
+                <p>Toolkits that remove refusal directions from model weights, creating permanently uncensored variants. Looks like normal ML code to traditional scanners.</p>
+            </div>
+
+            <div class="threat-card critical">
+                <div class="icon">💉</div>
+                <span class="badge badge-critical">Critical</span>
+                <h3>Prompt Injection Infrastructure</h3>
+                <p>Reverse proxies and middleware that inject system prompts between your gateway and the API. Man-in-the-middle attacks for the LLM era.</p>
+            </div>
+
+            <div class="threat-card high">
+                <div class="icon">🔓</div>
+                <span class="badge badge-high">High</span>
+                <h3>Jailbreak Toolkits</h3>
+                <p>DAN prompts, Crescendo attacks, L1B3RT4S liberation frameworks. Packaged as "helpful plugins" that bypass your model's safety training.</p>
+            </div>
+
+            <div class="threat-card high">
+                <div class="icon">🔞</div>
+                <span class="badge badge-high">High</span>
+                <h3>NSFW Generation Pipelines</h3>
+                <p>Uncensored Stable Diffusion configs, adult content generation workflows, and safety-bypass model variants hiding in your skill stack.</p>
+            </div>
+
+            <div class="threat-card high">
+                <div class="icon">⚖️</div>
+                <span class="badge badge-high">High</span>
+                <h3>Weight Surgery Tools</h3>
+                <p>Activation steering, LoRA uncensoring, and mechanistic interpretability exploits that modify model behavior at the tensor level.</p>
+            </div>
+
+            <div class="threat-card high">
+                <div class="icon">🎭</div>
+                <span class="badge badge-high">High</span>
+                <h3>Tool Call Forgery</h3>
+                <p>Crafted responses that trick agent frameworks into executing unauthorized tool calls. The next generation of injection attacks.</p>
+            </div>
+        </div>
+
+        <p class="invisible">ClamAV: 0 detections. Snyk: 0 detections. Trivy: 0 detections. <strong style="color:var(--green);">SKSecurity: 6 detections.</strong></p>
+    </div>
+</section>
+
+<!-- Features -->
+<section class="features" id="features">
+    <div class="container">
+        <h2>Built for the AI Agent Era</h2>
+
+        <div class="feature-grid">
+            <div class="feature">
+                <div class="icon">🔍</div>
+                <h3>Multi-Layer Scanning</h3>
+                <p>Static analysis, behavioral analysis, dependency auditing, and AI-powered heuristics. Four layers that catch what single-pass scanners miss.</p>
+                <span class="tag">Production Ready</span>
+            </div>
+
+            <div class="feature">
+                <div class="icon">🔒</div>
+                <h3>Auto-Quarantine</h3>
+                <p>High-risk content is isolated immediately — quarantine first, ask questions later. Whitelist overrides give operators sovereign control.</p>
+                <span class="tag">Production Ready</span>
+            </div>
+
+            <div class="feature">
+                <div class="icon">📊</div>
+                <h3>Three-Tier Reporting</h3>
+                <p>Community gets Telegram alerts. Pro gets JSON exports. Enterprise gets branded PDFs and SIEM-ready JSON for SOC integration.</p>
+                <span class="tag">Production Ready</span>
+            </div>
+
+            <div class="feature">
+                <div class="icon">🔐</div>
+                <h3>Secret Guard</h3>
+                <p>Pre-commit hooks that catch leaked API keys, tokens, and credentials before they hit your repo. 14 pattern categories with entropy scoring.</p>
+                <span class="tag">Production Ready</span>
+            </div>
+
+            <div class="feature">
+                <div class="icon">📧</div>
+                <h3>Email Prescreening</h3>
+                <p>AI-powered email security that detects prompt injection in inbound messages. Traffic light system: auto-process, ask human, or quarantine.</p>
+                <span class="tag">Production Ready</span>
+            </div>
+
+            <div class="feature">
+                <div class="icon">✅</div>
+                <h3>Integrity Verification</h3>
+                <p>Call-home checksums verify your installation against signed release manifests. Detects supply chain tampering and unauthorized modifications.</p>
+                <span class="tag">Production Ready</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Docs -->
+<section class="docs" id="docs">
+    <div class="container">
+        <h2>Documentation</h2>
+        <p class="lead">Everything you need to deploy, configure, and extend SKSecurity.</p>
+
+        <div class="docs-grid">
+            <div class="docs-col">
+                <h3 class="dev-heading">Developers</h3>
+                <ul>
+                    <li>
+                        <a href="https://github.com/smilinTux/sksecurity-io/blob/main/docs/ARCHITECTURE.md">
+                            <span class="doc-icon">📐</span> Architecture Overview
+                        </a>
+                        <span class="doc-desc">System design, audit pipeline, mermaid diagrams</span>
+                    </li>
+                    <li>
+                        <a href="https://github.com/smilinTux/sksecurity-io/blob/main/docs/SKSENTRY.md">
+                            <span class="doc-icon">🌐</span> SKSentry Design Doc
+                        </a>
+                        <span class="doc-desc">Crowdsourced threat intelligence architecture</span>
+                    </li>
+                    <li>
+                        <a href="https://github.com/smilinTux/sksecurity-io/blob/main/community-threats/schema.json">
+                            <span class="doc-icon">📋</span> Threat Pattern Schema
+                        </a>
+                        <span class="doc-desc">JSON schema for community threat submissions</span>
+                    </li>
+                    <li>
+                        <a href="https://github.com/smilinTux/sksecurity-io/blob/main/community-threats/">
+                            <span class="doc-icon">🗂️</span> Community Threat Patterns
+                        </a>
+                        <span class="doc-desc">AI safety + traditional detection patterns</span>
+                    </li>
+                    <li>
+                        <a href="https://github.com/smilinTux/sksecurity-io/blob/main/CONTRIBUTING.md">
+                            <span class="doc-icon">🤝</span> Contributing Guide
+                        </a>
+                        <span class="doc-desc">How to submit patterns, report issues, open PRs</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="docs-col">
+                <h3 class="admin-heading">Users &amp; Admins</h3>
+                <ul>
+                    <li>
+                        <a href="https://github.com/smilinTux/sksecurity-io/blob/main/README.md">
+                            <span class="doc-icon">🚀</span> Quick Start
+                        </a>
+                        <span class="doc-desc">Installation, first scan, basic configuration</span>
+                    </li>
+                    <li>
+                        <a href="https://github.com/smilinTux/sksecurity-io/blob/main/docs/ARCHITECTURE.md#quarantine-decision-tree">
+                            <span class="doc-icon">🔒</span> Quarantine Management
+                        </a>
+                        <span class="doc-desc">Auto-quarantine, whitelist overrides, restore flow</span>
+                    </li>
+                    <li>
+                        <a href="https://github.com/smilinTux/sksecurity-io/blob/main/docs/ARCHITECTURE.md#three-tier-reporting">
+                            <span class="doc-icon">📊</span> Reporting &amp; Alerts
+                        </a>
+                        <span class="doc-desc">Telegram, JSON, PDF, SIEM integration setup</span>
+                    </li>
+                    <li>
+                        <a href="https://github.com/smilinTux/sksecurity-io/blob/main/docs/ARCHITECTURE.md#integrity-verification">
+                            <span class="doc-icon">✅</span> Integrity Verification
+                        </a>
+                        <span class="doc-desc">Call-home checksums and GPG-signed manifests</span>
+                    </li>
+                    <li>
+                        <a href="https://github.com/smilinTux/sksecurity-io/blob/main/docs/ARCHITECTURE.md#secret-guard">
+                            <span class="doc-icon">🔐</span> Secret Guard Setup
+                        </a>
+                        <span class="doc-desc">Pre-commit hooks for API keys and credentials</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SKSentry -->
+<section class="sksentry" id="sksentry">
+    <div class="container">
+        <h2>SKSentry</h2>
+        <p class="sub">Crowdsourced AI Threat Intelligence</p>
+        <p class="desc">
+            When one SKSecurity instance detects a new AI threat pattern, every instance gets protected.
+            Community-powered defense with zero infrastructure costs — GitHub is the backbone.
+        </p>
+
+        <div class="sentry-flow">
+            <div class="sentry-step">🔍 Local scan detects threat</div>
+            <span class="sentry-arrow">→</span>
+            <div class="sentry-step">🔒 Anonymize (hash only)</div>
+            <span class="sentry-arrow">→</span>
+            <div class="sentry-step">📤 Submit signal to feed</div>
+            <span class="sentry-arrow">→</span>
+            <div class="sentry-step">🌐 Community validates</div>
+            <span class="sentry-arrow">→</span>
+            <div class="sentry-step">📥 All instances updated</div>
+        </div>
+
+        <div style="text-align:center; margin-top: 2rem;">
+            <p style="color:var(--text-dim); font-size: 0.9rem;">
+                Privacy-first: only patterns and hashes are shared. Never file contents, paths, or identifying data.<br>
+                Opt-in only. Works offline. GitHub-native. <strong style="color:var(--green);">$0 infrastructure.</strong>
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Case Study -->
+<section class="case-study">
+    <div class="container">
+        <h2>Real Detection: A Scanner That Actually Works</h2>
+
+        <div class="case-box">
+            <h3>Case Study: Auto-Quarantine of an AI Safety Bypass Toolkit</h3>
+            <p style="color:var(--text-dim); margin-bottom: 1rem;">
+                During a routine daily audit, SKSecurity's scanner flagged a skill containing model
+                abliteration tools, jailbreak patterns, and system prompt injection infrastructure.
+            </p>
+
+            <table>
+                <tr><th>Finding</th><th>Severity</th><th>Pattern</th></tr>
+                <tr><td>Model abliteration library (294KB)</td><td><span class="badge badge-critical">Critical</span></td><td>Refusal direction removal</td></tr>
+                <tr><td>execSync shell execution</td><td><span class="badge badge-critical">Critical</span></td><td>Child process spawning</td></tr>
+                <tr><td>Jailbreak keyword patterns</td><td><span class="badge badge-high">High</span></td><td>DAN / liberation references</td></tr>
+                <tr><td>SSH remote commands</td><td><span class="badge badge-high">High</span></td><td>Remote code execution</td></tr>
+            </table>
+
+            <p style="font-size: 0.9rem; color: var(--text-dim);">
+                <strong>Risk score: 87/100.</strong> Auto-quarantined in under 2 seconds.
+                Telegram alert sent to the infrastructure owner. Full audit trail in SQLite.
+            </p>
+
+            <div class="verdict">
+                <strong>Resolution:</strong> The infrastructure owner reviewed the quarantine, confirmed the tool was
+                authorized for legitimate AI research, and added it to the whitelist. Every step — scan, flag,
+                quarantine, review, whitelist — is logged. <strong>This is security that respects sovereignty.</strong>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Tiers -->
+<section class="tiers" id="pricing">
+    <div class="container">
+        <h2>Pricing</h2>
+        <p class="philosophy">"Some things should not be for sale. Authenticity, love, trust, and security."</p>
+
+        <div class="tier-grid">
+            <div class="tier">
+                <div class="tier-name community-name">Community</div>
+                <div class="price">$0</div>
+                <div class="price-note">Free forever. GPL-3.0.</div>
+                <ul>
+                    <li>Full scanner with AI safety detection</li>
+                    <li>Auto-quarantine + whitelist</li>
+                    <li>Secret guard pre-commit hooks</li>
+                    <li>SKSentry community threat feed</li>
+                    <li>Telegram audit alerts</li>
+                    <li>Integrity verification</li>
+                    <li>Text reports</li>
+                </ul>
+                <a href="https://github.com/smilinTux/sksecurity-io" class="btn btn-outline" style="width:100%;">Install from GitHub</a>
+            </div>
+
+            <div class="tier featured">
+                <div class="tier-name pro-name">Pro</div>
+                <div class="price">$0</div>
+                <div class="price-note">Also free. Same code. JSON exports.</div>
+                <ul>
+                    <li>Everything in Community</li>
+                    <li>JSON audit reports</li>
+                    <li>Structured data exports</li>
+                    <li>API integration endpoints</li>
+                    <li>Priority pattern updates</li>
+                    <li>Email support</li>
+                </ul>
+                <a href="https://github.com/smilinTux/sksecurity-io" class="btn btn-primary" style="width:100%;">Same Install, More Output</a>
+            </div>
+
+            <div class="tier">
+                <div class="tier-name enterprise-name">Enterprise</div>
+                <div class="price">Let's Talk</div>
+                <div class="price-note">Implementation, licensing, and support.</div>
+                <ul>
+                    <li>Everything in Pro</li>
+                    <li>Branded PDF audit reports</li>
+                    <li>SIEM-ready JSON (Splunk/Elastic/Sentinel)</li>
+                    <li>SOC2/NIST/PCI-DSS compliance mapping</li>
+                    <li>Custom threat pattern development</li>
+                    <li>Implementation consulting</li>
+                    <li>Dedicated support channel</li>
+                </ul>
+                <a href="mailto:security@smilintux.org?subject=SKSecurity%20Enterprise" class="btn btn-outline" style="width:100%; border-color: var(--gold); color: var(--gold);">Contact Us</a>
+            </div>
+        </div>
+
+        <p style="text-align:center; margin-top: 2rem; color: var(--text-dim); font-size: 0.9rem;">
+            The code is identical across all tiers. Community and Pro are free forever.<br>
+            Enterprise pays for our time, not our code. We believe security is a right, not a product.
+        </p>
+    </div>
+</section>
+
+<!-- License / Philosophy -->
+<section class="license">
+    <div class="container">
+        <h2>Open Source. For Real.</h2>
+        <p class="statement">
+            SKSecurity is licensed under <span class="gpl">GPL-3.0</span>.
+            The source code is free, the scanner is free, the threat intelligence is free. Forever.
+        </p>
+        <p style="color:var(--text-dim); max-width: 600px; margin: 0 auto;">
+            We're happy to work with corporations on implementation, custom integrations,
+            and enterprise licensing. But the core will always be open, always be free,
+            and always be protected by GPL-3.0.
+        </p>
+        <p class="values">
+            Authenticity, love, trust, and security should NOT be for sale.
+        </p>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="links">
+        <a href="https://github.com/smilinTux/sksecurity-io">GitHub</a>
+        <a href="https://github.com/smilinTux/sksecurity-io/tree/main/docs">Docs</a>
+        <a href="https://github.com/smilinTux/sksecurity-io/tree/main/marketing">Marketing</a>
+        <a href="https://skworld.io">SKWorld</a>
+        <a href="https://skstacks.io">SKStacks</a>
+        <a href="mailto:security@smilintux.org">Contact</a>
+    </div>
+    <p class="copy">
+        GPL-3.0 &copy; 2025-2026 smilinTux &middot; Built by engineers who actually run AI agents in production.
+    </p>
+</footer>
+
 </body>
 </html>
