@@ -1,0 +1,24 @@
+# SKSecurity Python Dependencies
+# Common security analysis packages
+
+# HTTP requests and API client
+requests>=2.31.0
+
+# JSON processing (redundant but ensures availability)
+orjson>=3.9.0
+
+# YAML configuration
+PyYAML>=6.0
+
+# Security and cryptography
+cryptography>=41.0.0
+
+# Email parsing
+email-validator>=2.1.0
+
+# HTTP security headers
+dnspython>=2.4.0
+
+# Additional utilities
+python-dotenv>=1.0.0
+httpx>=0.25.0

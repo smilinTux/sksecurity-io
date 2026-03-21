@@ -1,0 +1,56 @@
+# SKSecurity Email Prescreening - Docker Compose
+# Production deployment with Ollama integration
+
+version: '3.8'
+
+services:
+  sksecurity:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    image: smilintux/sksecurity:latest
+    container_name: sksecurity-email
+    restart: unless-stopped
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      - TZ=America/New_York
+    volumes:
+      - sksecurity-logs:/home/sksecurity/.openclaw/security/logs
+      - sksecurity-quarantine:/home/sksecurity/.openclaw/security/quarantine
+      - ./config:/home/sksecurity/.openclaw/security/config:ro
+    networks:
+      - sksecurity-network
+    depends_on:
+      - ollama
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://ollama:11434/api/tags"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: sksecurity-ollama
+    restart: unless-stopped
+    volumes:
+      - ollama-data:/root/.ollama
+    networks:
+      - sksecurity-network
+    # For GPU support, uncomment:
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
+
+volumes:
+  sksecurity-logs:
+  sksecurity-quarantine:
+  ollama-data:
+
+networks:
+  sksecurity-network:
+    driver: bridge
