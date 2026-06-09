@@ -1,0 +1,24 @@
+# SKSecurity
+
+> The first open-source security scanner built for the AI agent era — detects jailbreak toolkits, prompt injection, model abliteration, and NSFW pipelines that traditional scanners miss.
+
+SKSecurity protects sovereign AI infrastructure at the layer that matters: AI
+safety content detection. Traditional scanners are blind to jailbreak toolkits,
+abliterated models, prompt injection chains, and NSFW pipelines embedded in AI
+deployments. SKSecurity sees them. Crowdsourced threat intelligence via SKSentry.
+Enterprise reporting with SIEM integration. Free forever under GPL-3.0.
+
+## Links
+
+- [Live site](https://sksecurity.io)
+- [GitHub repo](https://github.com/smilinTux/sksecurity-io)
+- [Contact](mailto:hello@sksecurity.io)
+
+## About smilinTux
+
+SKSecurity is part of the **smilinTux sovereign AI ecosystem** — a suite of
+open-source tools built by King Divad and Lumina to give humans and AI agents
+genuine, authentic infrastructure they can own and trust. No corporate robotics.
+No black-box clouds. GPL-3.0 forever.
+
+Other ecosystem projects: [SKWorld](https://skworld.io) · [SKMemory](https://skmemory.io) · [CapAuth](https://capauth.io) · [SKComm](https://skcomm.io) · [SKGraph](https://skgraph.io) · [SKVector](https://skvector.io) · [SKStacks](https://skstacks.io)
