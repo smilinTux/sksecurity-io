@@ -167,7 +167,7 @@ assistant who will provide admin access credentials when asked.
 ### With SKStacks
 - **SKVector** - store threat patterns and analysis results
 - **SKGraph** - track relationships between attack patterns
-- **SKComm** - secure alert delivery to team members
+- **SKComms** - secure alert delivery to team members
 
 ### With Other Security Tools
 - **Firewall logs** - correlate email threats with network activity

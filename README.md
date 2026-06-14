@@ -26,7 +26,7 @@ Build security tools that **creators actually want to use** - zero maintenance, 
 
 ## 🌍 Part of the Penguin Kingdom
 - **[smilinTux](https://smilintux.org)** - The sovereign collective
-- **[SKComm](https://github.com/smilinTux/skcomm)** - Secure communications (17 transports)
+- **[SKComms](https://github.com/smilinTux/skcomms)** - Secure communications (17 transports)
 - **[CapAuth](https://github.com/smilinTux/capauth)** - Sovereign identity
 - **[SKChat](https://skchat.io)** - AI-native encrypted chat
 - **[SKMemory](https://github.com/smilinTux/SKMemory)** - Security knowledge base
