@@ -1,0 +1,41 @@
+{
+  "repo": "smilinTux/sksecurity",
+  "branch": "main",
+  "path": "docs",
+  "generated": "2026-06-30",
+  "note": "Committed fallback for the /docs viewer when the GitHub Contents API is unavailable or rate-limited. Regenerate from: python docs-manifest-gen.py smilinTux/sksecurity --out docs-manifest.json",
+  "docs": [
+    {
+      "name": "ARCHITECTURE.md",
+      "title": "SKSecurity Architecture"
+    },
+    {
+      "name": "INFERENCE-GATEWAY.md",
+      "title": "SKSecurity Inference Gateway"
+    },
+    {
+      "name": "QUANTUM_RESISTANCE.md",
+      "title": "SKSecurity — Quantum-Resistance: Crypto Inventory & Runtime Self-Report"
+    },
+    {
+      "name": "SKSENTRY.md",
+      "title": "SKSentry — Crowdsourced AI Threat Intelligence"
+    },
+    {
+      "name": "audit-2026-06-28.md",
+      "title": "Honest-Claims Ecosystem Audit — 2026-06-28"
+    },
+    {
+      "name": "honest-claims.md",
+      "title": "Honest-Claims Scanner — the no-overclaim gate"
+    },
+    {
+      "name": "pqc-posture.md",
+      "title": "PQC Posture — coverage self-report"
+    },
+    {
+      "name": "pqc-progression.md",
+      "title": "PQC Progression Ledger"
+    }
+  ]
+}
